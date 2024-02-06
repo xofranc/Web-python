@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('home/', views.index),
+    path('', views.index),
     path('about/', views.about),
     path('hello/<str:user>', views.hello),
 
@@ -15,7 +15,7 @@ urlpatterns = [
 
     #Santiago/ o Diego/, pero no se puede dejar vacio, o presentara un error 404, porque este espera algun tipo de parametro
 
-    path('task/<str:title>', views.task),
+    path('task', views.task),
 
 
 ]
