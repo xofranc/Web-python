@@ -25,11 +25,15 @@ def hello(request, username):
 
 def project(request):
     #   Crea una lista de los objetos, y la guarda en un Json
-    project = list(Proyecto.objects.values())
-    return render(request, 'project.html')
+    #   project = list(Proyecto.objects.values())
+    project = Proyecto.objects.all()
+    return render(request, 'project.html', {
+        'project': project})
 
-def task(request, title):
+def task(request):
     #   Obtener datos de un objeto mediante 
-    #task = Task.objects.get(title=title)    
-    return render(request, 'task.html', {'task': task})
-
+    #task = Task.objects.get(title=title)
+    task = Task.objects.all()
+    return render(request, 'task.html', {
+        'task': task,
+    })

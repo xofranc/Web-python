@@ -19,5 +19,12 @@
         "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#1857a4",
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace"
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.testing.pytestArgs": [
+        "myapp"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
