@@ -15,7 +15,9 @@ urlpatterns = [
 
     #Santiago/ o Diego/, pero no se puede dejar vacio, o presentara un error 404, porque este espera algun tipo de parametro
 
-    path('task', views.task),
+    path('task/', views.task),
+    path('create_task/', views.create_task),
+    path('create_project/', views.create_project)
 
 
 ]
