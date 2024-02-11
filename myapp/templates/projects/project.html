@@ -9,10 +9,15 @@
     <title>Projects</title>
 </head>
 <body>
-    <h1>{{project}}</h1>
+    <h1>muestra de toda la lista de projectos creados en la base de datos de Django</h1>
 
     {% for n in project %}
-    <h1>{{n.name}}</h1>
+
+    <article class="card">
+        <a href="">
+            <h1>{{n.name}}</h1>
+        </a>
+    </article>
     {% endfor %}
     
 

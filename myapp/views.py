@@ -1,11 +1,11 @@
 #   Importaciones
-from django.http import HttpResponse
 #se importa la libreria models, que tiene los objetos
-from .models import Proyecto, Task
 from django.shortcuts import render, redirect
 
-#se importa el archivo forms, que almacena todos los datos necesitados ingresados por el usuario en el backend
+# se importa el archivo forms, que almacena todos los datos necesitados ingresados por el usuario en el backend
 from .forms import createNewTask, createNewProject
+from .models import Proyecto, Task
+
 
 # Create your views here.
 def index(request):
@@ -22,10 +22,6 @@ def about(request):
         'username': username
     }) 
 
-def hello(request, username):
-    # para obtener el parametro impreso en el body
-    # se usa HttpResponse('<h2> Hello %s </h2>' % username)
-    return render(request, 'hello.html', {'username': username})
 
 def project(request):
     #   Crea una lista de los objetos, y la guarda en un Json
@@ -57,7 +53,7 @@ def create_task(request):
     else:
         #esto crea una nueva tarea en la clase Task, con los parametros ingresados, que son: title, description, y el project 
         Task.objects.create(title=request.POST['title'], descripcion=request.POST['description'], project_id = 3 )
-        return redirect('/task/')
+        return redirect('task')
 
 #   Crea una nueva funcion, para crear en este caso los proyectos
 def create_project(request):
@@ -70,5 +66,9 @@ def create_project(request):
         })
 
     else:
+        print(request.POST)
         Proyecto.objects.create(name=request.POST['name'])
-        return redirect('/project/')
+        return redirect('project')
+    
+def projectDetail(request):
+    return render(request, 'project/detail.html')
